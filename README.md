@@ -1,6 +1,5 @@
 
-
-# Train-Attention-Augmented Language Model
+# Train-Attention-Augmented Language Model (TAALM)
 
 ---
 
@@ -13,8 +12,8 @@ Previous studies on continual knowledge learning (CKL) in Large Language Models 
 ---
 
 ```coq
-$ conda create --name ttlm python=3.8
-$ conda activate ttlm
+$ conda create --name taalm python=3.8
+$ conda activate taalm
 $ pip install torch==2.1.2+cu118 -f https://download.pytorch.org/whl/torch_stable.html
 $ pip install -U -r requirements.txt
 $ python -m spacy download en_core_web_sm
@@ -25,12 +24,12 @@ $ python -m spacy download en_core_web_sm
 The **(target)** file of the conda environment must be replaced to (**replacement**).
 
 ```coq
-**(target)** [ttlm env dir] > site-packages > torch > nn > modules > moduel.py
+**(target)** [taalm env dir] > site-packages > torch > nn > modules > moduel.py
 
 **(replacement) [**project dir] > replacement > module.py
 ```
 
-This replacement facilitates the injection of parameters into a model without raising an exception, thus allowing multiple differentiations during Train-Attention training. Because this replacement file is specific to torch2.1.2, if you plan to use TTLM with other versions of Torch, you should customize this replacement to match those versions.
+This replacement facilitates the injection of parameters into a model without raising an exception, thus allowing multiple differentiations during Train-Attention training. Because this replacement file is specific to torch2.1.2, if you plan to use TAALM with other versions of Torch, you should customize this replacement to match those versions.
 
 # Quick start
 
@@ -57,7 +56,7 @@ Bash command files for evaluation with detailed configurations are in the  `scri
 
 ```bash
 
-# TTLM
+# TAALM
 $ bash scripts/eval/lamackl/targeted.sh
 
 # finetune
@@ -82,7 +81,7 @@ $ bash scripts/eval/lamackl/oracle.sh
 **TemporalWiki**
 
 ```bash
-# TTLM
+# TAALM
 $ bash scripts/eval/twiki/targeted.sh
 
 ...
